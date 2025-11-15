@@ -1,8 +1,8 @@
-# 🎯 PitchJudge.ai - AI Voice Agent for Pitch Practice
+# 🎯 La Pitcheria - AI Voice Agent for Pitch Practice
 
 **Practice your startup pitch with AI-powered investors before facing real VCs.**
 
-PitchJudge.ai is an AI voice agent that simulates real investor conversations, helping you refine your pitch and prepare for actual investor meetings. Get brutally honest feedback from different investor personas, including top-tier VCs, fashion industry veterans, Formula 1 legends, and more.
+La Pitcheria is an AI voice agent that simulates real investor conversations, helping you refine your pitch and prepare for actual investor meetings. Get brutally honest feedback from different investor personas, including top-tier VCs, fashion industry veterans, Formula 1 legends, and more.
 
 ## 🎤 What It Does
 
@@ -46,8 +46,8 @@ After your conversation, receive an automated pitch report with scores on:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/miradebs98/pitch-judge-ai.git
-cd pitch-judge-ai
+git clone https://github.com/miradebs98/Investor_voice_agent.git
+cd Investor_voice_agent
 ```
 
 ### 2. Setup Backend
