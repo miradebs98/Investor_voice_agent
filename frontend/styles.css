@@ -1,0 +1,370 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 900px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.main-content {
+    padding: 40px;
+}
+
+.vc-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    border: 2px solid #e9ecef;
+}
+
+.vc-avatar {
+    position: relative;
+}
+
+.avatar-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Animated talking avatar - simple animation when speaking */
+.animated-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    position: relative;
+    overflow: visible;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+/* Speaking indicator - animated pulse effect */
+.speaking-indicator {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%);
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Animation when speaking */
+.animated-avatar.speaking .avatar-image {
+    animation: talking 0.6s ease-in-out infinite;
+    transform-origin: center center;
+}
+
+.animated-avatar.speaking .speaking-indicator {
+    animation: pulse 1s ease-in-out infinite;
+}
+
+/* Smooth talking animation - bounces and slightly scales */
+@keyframes talking {
+    0%, 100% {
+        transform: scale(1) translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: scale(1.03) translateY(-2px) rotate(-1deg);
+    }
+    50% {
+        transform: scale(1.05) translateY(-4px) rotate(0deg);
+    }
+    75% {
+        transform: scale(1.03) translateY(-2px) rotate(1deg);
+    }
+}
+
+/* Pulse effect around avatar when speaking */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+}
+
+.status-indicator {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #6c757d;
+    border: 3px solid white;
+    transition: background 0.3s;
+}
+
+.status-indicator.active {
+    background: #28a745;
+    animation: pulse 2s infinite;
+}
+
+.status-indicator.listening {
+    background: #ffc107;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.vc-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.vc-title {
+    color: #667eea;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.vc-bio {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.conversation-area {
+    background: #f8f9fa;
+    border-radius: 16px;
+    padding: 20px;
+    min-height: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 30px;
+    border: 2px solid #e9ecef;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    display: flex;
+    gap: 12px;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.vc-message .message-avatar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.user-message {
+    flex-direction: row-reverse;
+}
+
+.user-message .message-avatar {
+    background: #28a745;
+    color: white;
+}
+
+.message-content {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    max-width: 70%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-message .message-content {
+    background: #e7f5e7;
+}
+
+.message-content p {
+    margin: 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.record-btn, .reset-btn {
+    padding: 18px 36px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.record-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.record-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.record-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.record-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.record-btn.recording {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    animation: pulse-button 1.5s infinite;
+}
+
+@keyframes pulse-button {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.reset-btn {
+    background: #6c757d;
+    color: white;
+}
+
+.reset-btn:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+.status-bar {
+    text-align: center;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* Scrollbar styling */
+.conversation-area::-webkit-scrollbar {
+    width: 8px;
+}
+
+.conversation-area::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.conversation-area::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 10px;
+}
+
+.conversation-area::-webkit-scrollbar-thumb:hover {
+    background: #764ba2;
+}
+

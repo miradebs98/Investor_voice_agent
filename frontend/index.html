@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VC Investor - Pitch Your Startup</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 VC Investor Pitch Session</h1>
+            <p class="subtitle">Pitch your startup to Alex Venture, a harsh but fair VC investor</p>
+        </div>
+
+        <div class="main-content">
+            <div class="vc-card">
+                <div class="vc-avatar">
+                    <div class="avatar-circle" id="avatarCircle">AV</div>
+                    <div id="heygenAvatar" style="display: none; width: 100%; height: 300px; border-radius: 12px; overflow: hidden;"></div>
+                    <!-- Animated talking avatar - simple animation when speaking -->
+                    <div id="animatedAvatar" class="animated-avatar" style="display: none;">
+                        <div class="avatar-container">
+                            <img id="avatarImage" src="" alt="VC Avatar" class="avatar-image">
+                            <div class="speaking-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="status-indicator" id="statusIndicator"></div>
+                </div>
+                <div class="vc-info">
+                    <h2>Alex Venture</h2>
+                    <p class="vc-title">Senior Partner • 20+ Years Experience</p>
+                    <p class="vc-bio">Brutally honest feedback on your pitch</p>
+                </div>
+            </div>
+
+            <div class="conversation-area">
+                <div class="messages" id="messages">
+                    <div class="message vc-message">
+                        <div class="message-avatar">AV</div>
+                        <div class="message-content">
+                            <p>Connecting...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="recordButton" class="record-btn" disabled>
+                    <span class="btn-icon">🎤</span>
+                    <span class="btn-text">Start Recording</span>
+                </button>
+                <button id="resetButton" class="reset-btn">
+                    <span class="btn-icon">🔄</span>
+                    <span class="btn-text">New Pitch</span>
+                </button>
+            </div>
+
+            <div class="status-bar">
+                <span id="statusText">Initializing...</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
+
